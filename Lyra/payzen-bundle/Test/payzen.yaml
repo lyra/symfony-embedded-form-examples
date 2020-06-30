@@ -1,0 +1,29 @@
+ #
+ # Copyright © Lyra Network.
+ # This file is part of PayZen Bundle for Symfony. See COPYING.md for license details.
+ #
+ # @author    Lyra Network (https://www.lyra-network.com/)
+ # @copyright Lyra Network
+ # @license   https://opensource.org/licenses/mit-license.html The MIT License (MIT)
+ #
+
+payzen:
+    site_id: '59821969'
+    test_mode: true 
+    algo_signature: 'HMAC-SHA256'
+    kr_popin: false # embedded= false or poppin = true
+    kr_language: ES-es
+    form_action: PAYMENT    #the available values are {PAYMENT , REGISTER , REGISTER_UPDATE , REGISTER_PAY , REGISTER_UPDATE_PAY,
+                            # REGISTER_SUBSCRIBE, REGISTER_PAY_SUBSCRIBE , ASK_REGISTER_PAY}
+
+    test_password: 'testpassword_hDI5VnVdSvwDaQoDRZPuSE8eyLADOeVsq08tm2XytO4pq'
+    prod_password: 'xxxx'
+    test_public_key: '59821969:testpublickey_OdiOvAefLLic76FJAbq9EEJkb8uteZQmMUIdbYVwwDbjI'
+    prod_public_key: 'xxxx'
+    hmac_256_test_key: '7OzRInLpynnLjJqgeg25mC2yDpmJ9qujOYw6qM00AGoET'
+    hmac_256_key_prod: 'xxx'
+    client_javascript_url: 'https://static.payzen.lat/'
+    api_rest_url: 'https://api.payzen.lat/'
+    kr_post_url_refused: 'https://localhost:8000/refused'
+    kr_post_url_success: 'https://localhost:8000/success/'
+

@@ -1,0 +1,42 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    Lyra\PayzenBundle\Payzen\:
+        resource: '../Lyra/payzen-bundle/Payzen'
+        arguments: ['%site_id%','%test_mode%', '%algo_signature%', '%kr_popin%', '%test_password%', '%prod_password%', '%test_public_key%', '%prod_public_key%'
+        , '%hmac_256_test_key%', '%hmac_256_key_prod%', '%client_javascript_url%', '%api_rest_url%', '%kr_post_url_refused%', '%kr_post_url_success%','%kr_language%'
+        , '%form_action%']
+        public: true
+
+
+
+
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    Lyra\PayzenBundle\Controller\:
+        resource: '../Lyra/payzen-bundle/Controller'
+        tags: ['controller.service_arguments']
